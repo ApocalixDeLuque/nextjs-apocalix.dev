@@ -1,62 +1,71 @@
-import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { c, css, dbarrow, docker, figma, git, github, google, html, java, js, notion, php, react, sass, todoist } from '../../public/icons';
-import CustomTooltip from '@/components/CustomTooltip';
-import { ClassNames } from '@emotion/react';
+import CustomTooltip from '@/components/utils/CustomTooltip';
+import { useContext } from 'react';
+import { LanguageContext } from '@/components/utils/LanguageContext';
 
 interface TextListProps{
-  pageURL?: string;
-  fontSize?: number;
-  placement?: "top" | "bottom" | "left" | "right";
-  text: string;
-  tooltipText: string;
-  divClassName?: string;
+    pageURL?: string;
+    fontSize?: number;
+    placement?: "top" | "bottom" | "left" | "right";
+    text: string;
+    tooltipText: string;
+    divClassName?: string;
 }
 
 interface IconListProps {
-  icon: StaticImageData;
-  text: string;
-  opacity?: string;
-  className?: string;
+    icon: StaticImageData;
+    text: string;
+    opacity?: string;
+    className?: string;
 }
 
-const TextList = ({ divClassName='', pageURL, fontSize = 3, placement = "top", text, tooltipText }: TextListProps) => {
-  return (
-    <CustomTooltip size={fontSize} followCursor placement={placement} title={<p>{tooltipText}</p>}>
-      <div className={`w-fit flex ${divClassName.includes('flex-row-reverse') ?'flex-row-reverse' : 'flex-row' } gap-6${divClassName}`} onClick={() => { if (pageURL) window.open(pageURL, "_blank"); }}>
-        <Image className='flex w-8 h-8 justify-center items-center' src={dbarrow} alt='arrow' />
-        <p className='text-4xl'>{text}</p>
-      </div>
-    </CustomTooltip>
-  );
+const TextList = ({ divClassName='', pageURL, fontSize = 24, placement = "top", text, tooltipText }: TextListProps) => {
+    return (
+        <CustomTooltip size={fontSize} followCursor placement={placement} title={<p>{tooltipText}</p>}>
+            <div className={`w-fit flex ${divClassName.includes('flex-row-reverse') ?'flex-row-reverse' : 'flex-row' } gap-6${divClassName}`} onClick={() => { if (pageURL) window.open(pageURL, "_blank"); }}>
+                <Image className='flex w-8 h-8 justify-center items-center' src={dbarrow} alt='arrow'/>
+                <p className='text-4xl'>{text}</p>
+            </div>
+        </CustomTooltip>
+    );
 };
 
 const IconList = ({ icon, text, opacity = "0.5" }: IconListProps) => {
-  return (
-    <div className='w-full max-w-[20rem] flex flex-col justify-center items-center gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300'>
-      <Image className='flex justify-center items-center w-32 opacity-50' style={{ opacity: opacity }} src={icon} alt='icon' />
-      <p className='text-center text-4xl'>{text}</p>
-    </div>
-  );
+    return (
+        <div className='w-full max-w-[200px] flex flex-col justify-center items-center gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300'>
+            <Image className='flex justify-center items-center w-32 aspect-square opacity-50' style={{ opacity: opacity }} src={icon} alt='icon'/>
+            <p className='w-full text-center text-4xl'>{text}</p>
+        </div>
+    );
 };
 
 const AboutMe = () => {
+    const { language } = useContext(LanguageContext);
+  
+    const getText = (enText: string, esText: string) => {
+      return language === 'en' ? enText : esText;
+    };
+
     return (
-        <div>
-            <div className="w-full flex flex-col items-center justify-center py-16 px-32 gap-32">
+        <section className='py-16 px-32 '>
+            <div className="w-full flex flex-col items-center justify-center gap-32">
                 <div className="w-full items-start">
                     <h2 className="w-full font-semibold text-7xl">about me 🧐</h2>
                 </div>
                 <div className="w-full flex gap-8 items-center justify-between">
                     <div className="flex flex-col justify-items-start gap-8">
-                        <TextList tooltipText="at universidad de guanajuato" text="computer science student" />
-                        <TextList tooltipText="lived 8 years in usa!" text="english-spanish bilingual" />
-                        <TextList tooltipText="i love minecraft:)" text="first developed due to videogame passion" />
-                        <TextList tooltipText="self taught frontend/design" text="aim to become a fullstack dev" />
-                        <TextList divClassName=' line-through decoration-4 hover:cursor-pointer hover:text-red hover:no-underline transition-all duration-300' tooltipText="click to see my charts!" text="music lover" pageURL={"https://www.last.fm/es/user/ApocalixDeLuque"} />
+                        <TextList tooltipText={getText("at universidad de guanajuato", "en la universidad de guanajuato")}      text={getText("computer science student", "estudiante de sistemas computacionales")} />
+                        <TextList tooltipText={getText("lived 8 years in usa!", "¡vivi 8 años en estados unidos!")}             text={getText("english-spanish bilingual", "bilingüe ingles-español")} />
+                        <TextList tooltipText={getText("minecraft fan:)", "fan de minecraft:)")}                                text={getText("first developed due to videogame passion", "empecé a desarrollar por pasión a los videojuegos")} />
+                        <TextList tooltipText={getText("self taught frontend & design", "autodidacta en frontend y diseño")}    text={getText("aim to become a fullstack dev", "mi objetivo es convertirme en un desarrollador fullstack")} />
+                        <TextList tooltipText={getText("click to see my charts!", "¡haz clic para ver mis stats!")}             text={getText("music lover", "amante de la música")}
+                                    divClassName=' line-through decoration-4 hover:cursor-pointer hover:text-red hover:no-underline transition-all duration-300'
+                                    pageURL={"https://www.last.fm/es/user/ApocalixDeLuque"}/>
                     </div>
+
                     <div className='aboutme__container-list_secret'>
-                        <TextList divClassName=' flex-row-reverse justify-items-end opacity-20 hover:opacity-100 hover:cursor-pointer transition-all duration-300' fontSize={2} placement="bottom" tooltipText="unimportant stuff" text="🤫"></TextList>
+                        <TextList divClassName=' flex-row-reverse justify-items-end opacity-20 hover:opacity-100 hover:cursor-pointer transition-all duration-300' placement="bottom" tooltipText="unimportant stuff" text="🤫"></TextList>
                     </div>
                 </div>
             </div>
@@ -92,7 +101,7 @@ const AboutMe = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

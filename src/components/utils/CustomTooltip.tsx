@@ -7,7 +7,7 @@ interface CustomTooltipProps extends TooltipProps {
   className?: string;
 }
 
-const CustomTooltip: FC<CustomTooltipProps> = styled(({ size = 1.5, className, children, title, ...props }: CustomTooltipProps) => (
+const CustomTooltip: FC<CustomTooltipProps> = styled(({ size = 16, className, children, title, ...props }: CustomTooltipProps) => (
   <Tooltip className='' {...props} title={title} classes={{ popper: className }}>
     {children}
   </Tooltip>
@@ -16,12 +16,13 @@ const CustomTooltip: FC<CustomTooltipProps> = styled(({ size = 1.5, className, c
     backgroundColor: '#FFFFFF',
     color: '#071013',
     width: '100%',
+    maxWidth: 'fit-content',
     fontFamily: 'Poppins, sans-serif',
-    fontSize: `${(size ?? 1.5) * 0.5}rem`,
+    fontSize: `${(size ?? 16)}px`,
     textAlign: 'center',
     border: '1px solid #E7E7E7',
     borderRadius: '24px',
-    padding: '0.5rem 1rem',
+    padding: '10px 20px',
   },
 }));
 
