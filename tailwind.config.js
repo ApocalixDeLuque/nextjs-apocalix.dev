@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 module.exports = {
 
   content: [
@@ -23,5 +24,31 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          padding: '.5rem 1rem',
+          borderRadius: '.25rem',
+          fontWeight: '600',
+        },
+
+        '.section': {
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '128px',
+          padding: '64px 128px',
+        },
+      
+        '.title':  {
+          width: '100%',
+          fontWeight: '600',
+          fontSize: '72px',
+        },
+      })
+    })
+  ]
 }

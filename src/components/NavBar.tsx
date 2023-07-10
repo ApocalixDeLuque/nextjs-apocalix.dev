@@ -1,12 +1,11 @@
-import CustomTooltip from '@/components/utils/CustomTooltip'
-import moon from "../../public/icons/moon.png"
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext } from 'react';
-import { LanguageContext } from '@/components/utils/LanguageContext';
+import CustomTooltip from '@/components/utils/CustomTooltip'
+import { useLanguage } from './utils/LanguageContext';
+import {moon, web} from '../../public/icons'
 
 const Navbar = () => {
-    const { language, toggleLanguage } = useContext(LanguageContext);
+    const { language, getText, toggleLanguage } = useLanguage();
 
     return (
         <section className='w-full flex sticky top-0 z-10 border-b-2 border-lightgray items-center justify-between bg-light py-6 px-32'>
@@ -23,16 +22,14 @@ const Navbar = () => {
             </div>
             <div className='flex items-center justify-center text-2xl text-gray gap-6'>
                 <div className='flex gap-6'>
-                    <p>projects</p>
-                    <p>about me</p>
-                    <p>contact</p>
+                    <p>{getText("projects", "proyectos")}</p>
+                    <p>{getText("about me", "sobre mí")}</p>
+                    <p>contact{getText("", "o")}</p>
                 </div>
-                <CustomTooltip followCursor title={<p>{language === 'en' ? 'cambiar lenguaje' : 'change language'}</p>}>
-                    {/* TODO: On click change page language and text color of en/es */}
-                    <div className='flex p-3 bg-lightgray rounded-full gap-1 hover:bg-red transition-all group hover:cursor-pointer' onClick={toggleLanguage}>
-                        <p className='text-dark'>en</p>
-                        <p className='text-dark'>/</p>
-                        <p className='group-hover:text-light transition-all'>es</p>
+                <CustomTooltip followCursor title={<p>{language === 'en' ? 'change to spanish' : 'cambiar a inglés'}</p>}>
+                    <div className='flex items-center justify-center p-3 bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}>
+                       <Image src={web} alt='web' className='w-6 h-6 group-hover:invert transition-all duration-[250ms]'/>
+                       <p className='text-dark group-hover:text-light transition-all duration-[250ms]'>{getText("english","español")}</p>
                     </div>
                 </CustomTooltip>
             </div>

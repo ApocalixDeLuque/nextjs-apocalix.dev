@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { MainLayout } from '../layout/MainLayout'
+import { MainLayout } from '@/layout/MainLayout'
 import { Poppins } from 'next/font/google'
 import { LanguageProvider } from '@/components/utils/LanguageContext';
 
