@@ -32,22 +32,6 @@ module.exports = {
           borderRadius: '.25rem',
           fontWeight: '600',
         },
-
-        '.section': {
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '128px',
-          padding: '64px 128px',
-        },
-      
-        '.title':  {
-          width: '100%',
-          fontWeight: '600',
-          fontSize: '72px',
-        },
       })
     })
   ]

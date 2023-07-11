@@ -1,3 +1,4 @@
+
 import AboutMe from '@/components/AboutMe'
 import Head from 'next/head'
 import Hero from '@/components/Hero'
@@ -7,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>apocalix.dev | hello!</title>
+                <title>apocalix.dev | homepage</title>
             </Head>
             <Hero/>
             <Projects/>
