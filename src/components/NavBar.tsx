@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import CustomTooltip from '@/components/utils/CustomTooltip'
 import { useLanguage } from './utils/LanguageContext'
-import { moon, web } from '../../public/icons'
+import { menu, moon, web } from '../../public/icons'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -48,32 +48,35 @@ const Navbar = () => {
       }, [currentPath])
   
     return (
-        console.log(text),
-        <section className='w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-6 px-32'>
-            <div className='w-full h-fit flex items-center justify-between max-w-[1800px]'>
-                <div className='flex text-3xl font-semibold items-center justify-center'>
-                    <Link scroll={false} className='flex items-center gap-4' href='/'>
+        <section className='w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-4 px-4 xs:px-16 xl:px-32'>
+            <div className='text-xl xl:text-2xl 2xl:text-[28px] w-full h-fit flex items-center justify-between max-w-[1800px]'>
+                <div className='flex font-semibold items-center justify-center'>
+                    <Link scroll={false} className='flex items-center gap-2 sm:gap-4' href='/'>
                         <Image className='w-6 h-6 flex' src={moon} alt='logo' />
                         <p>apocalix.dev</p>
                     </Link>
                     <div className='flex'>
-                        <p className='text-lightgray'>{text}<span className='blink'>_</span>
-                        </p>
+                        <p className='text-lightgray'>{text}<span className='blink'>_</span></p>
                     </div>
                 </div>
-                <div className='flex items-center text-2xl text-gray gap-6'>
-                    <nav className='flex gap-6'>
+                <div className='flex items-center justify-center text-gray gap-6'>
+                    <nav className=' hidden xl:flex gap-6'>
                         <Link scroll={false} href={`#${getText("home","inicio")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("home", "inicio")}</p></Link>
                         <Link scroll={false} href={`#${getText("projects","proyectos")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("projects", "proyectos")}</p></Link>
                         <Link scroll={false} href={`#${getText("about-me","sobre-mi")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("about me", "sobre mí")}</p></Link>
                         <Link scroll={false} href={`#${getText("contact","contacto")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("contact", "contacto")}</p></Link>
                     </nav>
                     <CustomTooltip followCursor title={<p>{getText('change to spanish', 'cambiar a inglés')}</p>}>
-                        <div className='flex items-center justify-center p-3 bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}>
-                            <Image src={web} alt='web' className='w-6 h-6 group-hover:invert transition-all duration-[250ms]'/>
-                            <p className='text-dark group-hover:text-light transition-all duration-[250ms]'>{getText("english","español")}</p>
+                        <div className='hidden md:flex items-center justify-center p-3 bg-transparent xl:bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}>
+                            <Image src={web} alt='web' className='opacity-60 xl:opacity-100 w-4 xl:w-6 aspect-square group-hover:invert group-hover:opacity-100 transition-all duration-[250ms]'/>
+                            <p className='text-gray flex lg:hidden group-hover:text-light transition-all duration-[250ms]'>{getText("en","es")}</p>
+                            <p className='xl:text-dark text-gray hidden lg:flex group-hover:text-light transition-all duration-[250ms]'>{getText("english","español")}</p>
                         </div>
                     </CustomTooltip>
+                    <div className='flex xl:hidden items-center justify-center px-5 py-2 xl:p-3 bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}> {/* implement dropdown */}
+                        <Image src={menu} alt='web' className='w-6 h-6 group-hover:invert transition-all duration-[250ms]'/>
+                        <p className='hidden text-dark sm:flex group-hover:text-light transition-all duration-[250ms]'>menu</p>
+                    </div>
                 </div>
             </div>
         </section>

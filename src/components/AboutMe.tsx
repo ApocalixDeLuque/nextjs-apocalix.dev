@@ -33,9 +33,9 @@ const TextList = ({ divClassName='', pageURL, fontSize = 24, placement = "top", 
 
 const IconList = ({ icon, text, opacity = "0.5" }: IconListProps) => {
     return (
-        <div className='w-full max-w-[200px] flex flex-col justify-center items-center gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300'>
-            <Image className='flex justify-center items-center w-32 aspect-square opacity-50' style={{ opacity: opacity }} src={icon} alt='icon'/>
-            <p className='w-full text-center text-4xl'>{text}</p>
+        <div className='lg:w-full lg:max-w-[200px] flex flex-col justify-center items-center gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300'>
+            <Image className='flex justify-center items-center w-16 lg:w-32 aspect-square opacity-50' style={{ opacity: opacity }} src={icon} alt='icon'/>
+            <p className='w-full text-center text-xl lg:text-4xl'>{text}</p>
         </div>
     );
 };
@@ -50,7 +50,7 @@ const AboutMe = () => {
                     <div className="w-full items-start">
                         <h2 className="w-full font-semibold text-7xl">{getText("about me","sobre mí")} 🧐</h2>
                     </div>
-                    <div className="w-full flex gap-8 items-center justify-between">
+                    <div className="w-full flex gap-8 items-center justify-between flex-wrap">
                         <div className="flex flex-col justify-items-start gap-8">
                             <TextList tooltipText={"@ universidad de guanajuato"}                                                   text={getText("computer science student", "estudio sistemas computacionales")} />
                             <TextList tooltipText={getText("lived 8 years in usa!", "¡vivi 8 años en estados unidos!")}             text={getText("english-spanish bilingual", "bilingüe ingles-español")} />
@@ -68,7 +68,7 @@ const AboutMe = () => {
                 <div className="flex flex-col gap-36 py-80">
                     <div className="w-full flex flex-col justify-center items-center gap-32">
                         <h2 className='text-5xl'>{getText("languages i know","lenguajes que sé")}:</h2>
-                        <div className="w-full flex justify-between items-center gap-6 px-24">
+                        <div className="w-full flex flex-wrap justify-evenly items-center gap-6 px-24">
                             <IconList icon={java} text="java" />
                             <IconList icon={c} text="c" />
                             <IconList icon={html} text="html" />
@@ -79,7 +79,7 @@ const AboutMe = () => {
                     </div>
                     <div className="w-full flex flex-col justify-center items-center gap-32">
                         <h2 className='text-5xl'>software / {getText("libraries","librerías")}:</h2>
-                        <div className="w-full flex justify-between items-center gap-6 px-24">
+                        <div className="w-full flex flex-wrap justify-evenly items-center gap-6 px-24">
                             <IconList icon={git} text="git" />
                             <IconList icon={docker} text="docker" />
                             <IconList icon={react} text="react" />
@@ -88,7 +88,7 @@ const AboutMe = () => {
                     </div>
                     <div className="w-full flex flex-col justify-center items-center gap-32">
                         <h2 className='text-5xl'>{getText("daily tools","herramientas")}:</h2>
-                        <div className="w-full flex justify-between items-center gap-6 px-24">
+                        <div className="w-full flex flex-wrap justify-evenly items-center gap-6 px-24">
                             <IconList opacity="1" icon={notion} text="notion" />
                             <IconList opacity="1" icon={figma} text="figma" />
                             <IconList opacity="1" icon={google} text="google workspace" />
