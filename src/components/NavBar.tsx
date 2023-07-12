@@ -48,8 +48,8 @@ const Navbar = () => {
       }, [currentPath])
   
     return (
-        <section className='w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-4 px-4 xs:px-16 xl:px-32'>
-            <div className='text-xl xl:text-2xl 2xl:text-[28px] w-full h-fit flex items-center justify-between max-w-[1800px]'>
+        <section className='w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-4 px-4 xs:px-16 xl:px-32 3xl:py-8'>
+            <div className='text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl w-full h-fit flex items-center justify-between max-w-[1800px]'>
                 <div className='flex font-semibold items-center justify-center'>
                     <Link scroll={false} className='flex items-center gap-2 sm:gap-4' href='/'>
                         <Image className='w-6 h-6 flex' src={moon} alt='logo' />
@@ -59,7 +59,7 @@ const Navbar = () => {
                         <p className='text-lightgray'>{text}<span className='blink'>_</span></p>
                     </div>
                 </div>
-                <div className='flex items-center justify-center text-gray gap-6'>
+                <div className='2xl:text-2xl 3xl:text-3xl flex items-center justify-center text-gray gap-6'>
                     <nav className=' hidden xl:flex gap-6'>
                         <Link scroll={false} href={`#${getText("home","inicio")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("home", "inicio")}</p></Link>
                         <Link scroll={false} href={`#${getText("projects","proyectos")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("projects", "proyectos")}</p></Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
                             <p className='xl:text-dark text-gray hidden lg:flex group-hover:text-light transition-all duration-[250ms]'>{getText("english","español")}</p>
                         </div>
                     </CustomTooltip>
-                    <div className='flex xl:hidden items-center justify-center px-5 py-2 xl:p-3 bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}> {/* implement dropdown */}
+                    <div className='flex xl:hidden items-center justify-center p-1 sm:px-5 sm:py-2 xl:p-3 sm:bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}> {/* implement dropdown */}
                         <Image src={menu} alt='web' className='w-6 h-6 group-hover:invert transition-all duration-[250ms]'/>
                         <p className='hidden text-dark sm:flex group-hover:text-light transition-all duration-[250ms]'>menu</p>
                     </div>

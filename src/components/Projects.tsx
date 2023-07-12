@@ -18,8 +18,8 @@ interface ProjectCardProps {
 const ProjectCard = ({title, preview, pageURL, githubURL}: ProjectCardProps) => {
     var { getText } = useLanguage()
     return (
-        <div className='w-full flex flex-col items-start gap-4 border-2 border-lightgray rounded-[32px] p-8 xl:p-12 hover:scale-[1.02] transition-all duration-[250ms]'>
-            <h2 className='text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl pb-2 xl:pb-4'>{title}</h2>
+        <div className='w-full flex flex-col items-center sm:items-start gap-4 border-2 border-lightgray rounded-[32px] p-4 sm:p-8 xl:p-12 hover:scale-[1.02] transition-all duration-[250ms]'>
+            <h2 className='text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl sm:pb-2 xl:pb-4'>{title}</h2>
             <Link scroll={false} className='w-full aspect-video relative block bg-gray-900 group' href={pageURL}>
                 <Image className='w-full h-full aspect-video rounded-lg absolute inset-0 object-cover group-hover:brightness-50 hover:cursor-pointer transition-all duration-[250ms]' src={preview} alt='project'/>
                 <div className="flex h-full items-center justify-center relative p-5">
@@ -30,12 +30,12 @@ const ProjectCard = ({title, preview, pageURL, githubURL}: ProjectCardProps) => 
                 </div>
             </Link>
             <div className='w-full flex flex-col lg:flex-row items-center justify-center gap-2'>
-                <div className='w-full flex items-center justify-center py-3 md:py-6 xl:py-8 xl:px-14 gap-2 lg:gap-4 rounded-[32px]  bg-lightgray  hover:bg-red hover:text-light hover:cursor-pointer group transition-all duration-[250ms]' onClick={() => window.open(githubURL, "_blank")}>
-                    <Image className='w-6 lg:w-8 xl:w-12 aspect-square group-hover:invert transition-all duration-[250ms]' src={web} alt='webpage'></Image>
+                <div className='w-full flex items-center justify-center py-1 sm:py-3 md:py-6 xl:py-8 xl:px-14 gap-2 lg:gap-4 rounded-[32px]  bg-lightgray  hover:bg-red hover:text-light hover:cursor-pointer group transition-all duration-[250ms]' onClick={() => window.open(githubURL, "_blank")}>
+                    <Image className='w-5 sm:w-6 lg:w-8 xl:w-12 aspect-square group-hover:invert transition-all duration-[250ms]' src={web} alt='webpage'></Image>
                     <p className='text-2xl xl:text-4xl'>{getText("see live","en vivo")}</p>
                 </div>
-                <div className='w-full flex items-center justify-center py-3 md:py-6 xl:py-8 xl:px-14 gap-2 lg:gap-4 rounded-[32px] bg-lightgray hover:bg-red hover:text-light hover:cursor-pointer group transition-all duration-[250ms]' onClick={() => window.open(githubURL, "_blank")}>
-                    <Image className='w-6 lg:w-8 xl:w-12 aspect-square group-hover:invert transition-all duration-[250ms]' src={github} alt='github'></Image>
+                <div className='w-full flex items-center justify-center py-1 sm:py-3 md:py-6 xl:py-8 xl:px-14 gap-2 lg:gap-4 rounded-[32px] bg-lightgray hover:bg-red hover:text-light hover:cursor-pointer group transition-all duration-[250ms]' onClick={() => window.open(githubURL, "_blank")}>
+                    <Image className='w-5 sm:w-6 lg:w-8 xl:w-12 aspect-square group-hover:invert transition-all duration-[250ms]' src={github} alt='github'></Image>
                     <p className='text-2xl xl:text-4xl'>github</p>
                 </div>
             </div>
@@ -46,8 +46,8 @@ const ProjectCard = ({title, preview, pageURL, githubURL}: ProjectCardProps) => 
 const Projects = () => {
     var { getText } = useLanguage()
     return (
-        <section id={getText("projects", "proyectos")} className='w-full flex items-center justify-center p-16 xl:py-40 xl:px-32'>
-            <div className='w-full h-fit flex flex-col items-center gap-16 xl:gap-32 max-w-[1800px]'>
+        <section id={getText("projects", "proyectos")} className='w-full flex items-center justify-center py-8 md:py-16 px-8 sm:p-16 xl:py-40 xl:px-32'>
+            <div className='w-full h-fit text-center sm:text-start flex flex-col items-center gap-8 sm:gap-16 xl:gap-32 max-w-[1800px]'>
                 <h2 className='w-full font-semibold text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl'>{getText("projects", "proyectos")} 💻</h2>
                 <div className='w-full grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16 xl:px-16'>
                     <ProjectCard pageURL={"https://arteneural.vercel.app/"} githubURL={"https://github.com/ApocalixDeLuque/arteneural"} title="arteneural" preview={page3}/>
