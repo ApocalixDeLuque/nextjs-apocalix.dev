@@ -49,13 +49,13 @@ const Navbar = () => {
   
     return (
         <section className='w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-4 px-4 xs:px-16 xl:px-32 3xl:py-8'>
-            <div className='text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl w-full h-fit flex items-center justify-between max-w-[1800px]'>
+            <div className='text-[19px] xl:text-2xl 2xl:text-3xl 3xl:text-4xl w-full h-fit flex items-center justify-between max-w-[1800px]'>
                 <div className='flex font-semibold items-center justify-center'>
                     <Link scroll={false} className='flex items-center gap-2 sm:gap-4' href='/'>
                         <Image className='w-6 h-6 flex' src={moon} alt='logo' />
                         <p>apocalix.dev</p>
                     </Link>
-                    <div className='flex'>
+                    <div className='hidden xxs:flex'>
                         <p className='text-lightgray'>{text}<span className='blink'>_</span></p>
                     </div>
                 </div>

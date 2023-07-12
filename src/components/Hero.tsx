@@ -20,7 +20,7 @@ const Hero = () => {
                         </div>
                     </Link>
                 </div>
-                <div className='flex items-start justify-center w-3/5 xl:w-2/5 min-w-[300px] p-8 sm:p-16'>
+                <div className='flex items-start justify-center w-full xxs:w-3/5 sm:w-full md:w-[90%] min-900:w-[680px] 2xl:w-[800px] xxs:min-w-[300px] p-8 sm:p-16'>
                     <Image src={programmer} alt='programmer'></Image>
                 </div>
             </div>

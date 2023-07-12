@@ -1,8 +1,9 @@
 
-import { c, css, dbarrow, docker, figma, git, github, google, html, java, js, notion, php, react, sass, todoist } from '../../public/icons'
+import { c, css, dbarrow, docker, figma, git, github, google, html, java, js, nextjs, notion, php, react, sass, tailwind, todoist, ts, vscode } from '../../public/icons'
 import Image, { StaticImageData } from 'next/image'
 import { useLanguage } from './utils/LanguageContext'
 import CustomTooltip from './utils/CustomTooltip'
+import { Icon } from '@mui/material';
 
 interface TextListProps{
     pageURL?: string;
@@ -72,18 +73,21 @@ return (                                                                        
                             <IconList icon={java} text="java" />
                             <IconList icon={c} text="c" />
                             <IconList icon={html} text="html" />
-                            <IconList icon={js} text="javascript" />
                             <IconList icon={css} text="css" />
                             <IconList icon={php} text="php" />
+                            <IconList icon={js} text="javascript" />
+                            <IconList icon={ts} text="typescript" />
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center items-center gap-12 sm:gap-16 md:gap-24 xl:gap-32">
-                        <h2 className='text-3xl 2xl:text-4xl 3xl:text-5xl'>software / {getText("libraries","librerías")}:</h2>
+                        <h2 className='text-3xl 2xl:text-4xl 3xl:text-5xl'>{getText("other","otros")}:</h2>
                         <div className="w-full flex flex-wrap justify-evenly items-center gap-4 md:gap-6 xl:px-24">
+                            <IconList icon={nextjs} text="next.js" />
                             <IconList icon={git} text="git" />
                             <IconList icon={docker} text="docker" />
                             <IconList icon={react} text="react" />
                             <IconList icon={sass} text="sass" />
+                            <IconList icon={tailwind} text="tailwind" />
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center items-center gap-12 sm:gap-16 md:gap-24 xl:gap-32">
@@ -91,10 +95,10 @@ return (                                                                        
                         <div className="w-full flex flex-wrap justify-evenly items-center gap-4 md:gap-6 xl:px-24">
                             <IconList opacity="1" icon={notion} text="notion" />
                             <IconList opacity="1" icon={figma} text="figma" />
-                            <IconList opacity="1" icon={google} text="google 
-                            workspace" />
                             <IconList opacity="1" icon={github} text="github" />
                             <IconList opacity="1" icon={todoist} text="todoist" />
+                            <IconList opacity="1" icon={vscode} text="vs code" />
+                            <IconList opacity="1" icon={google} text="google workspace" />
                         </div>
                     </div>
                 </div>
