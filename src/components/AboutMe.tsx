@@ -3,7 +3,6 @@ import { c, css, dbarrow, docker, figma, git, github, google, html, java, js, ne
 import Image, { StaticImageData } from 'next/image'
 import { useLanguage } from './utils/LanguageContext'
 import CustomTooltip from './utils/CustomTooltip'
-import { Icon } from '@mui/material';
 
 interface TextListProps{
     pageURL?: string;
@@ -44,15 +43,15 @@ const IconList = ({ icon, text, opacity = "0.5" }: IconListProps) => {
 const AboutMe = () => {
     const { getText } = useLanguage();
 
-return (                                                                                    /* REMOVE -> pb-8 <- WHEN CONTACT IS DONE */
-        <section id={getText("about-me", "sobre-mi")} className='w-full flex items-center justify-center pb-8 md:pb-16 xl:pb-32 pt-24 md:pt-32 px-8 sm:p-16 xl:pt-80 xl:px-32'>
+return (
+        <section id={getText("about-me", "sobre-mi")} className='w-full flex items-center justify-center pt-24 md:pt-32 px-8 sm:p-16 xl:pt-80 xl:px-32'>
             <div className='w-full h-fit flex flex-col gap-16 xl:gap-20 2xl:gap-32 justify-center max-w-[1800px]'>
                 <div className="w-full flex flex-col items-center justify-center gap-8 sm:gap-16 xl:gap-32">
                     <div className="w-full items-start">
                         <h2 className='w-full font-semibold text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl'>{getText("about me","sobre mí")} 🧐</h2>
                     </div>
                     <div className="w-full flex gap-8 items-center justify-between flex-wrap">
-                        <div className="flex flex-col justify-items-start gap-4 md:gap-8">
+                        <div className="flex flex-col justify-items-start gap-4 md:gap-8 xl:gap-12">
                             <TextList tooltipText={"@ universidad de guanajuato"}                                                   text={getText("computer science student", "estudio sistemas computacionales")} />
                             <TextList tooltipText={getText("lived 8 years in usa!", "¡vivi 8 años en estados unidos!")}             text={getText("english-spanish bilingual", "bilingüe ingles-español")} />
                             <TextList tooltipText={getText("minecraft fan:)", "fan de minecraft:)")}                                text={getText("first developed due to videogame passion", "empecé a desarrollar por pasión a los videojuegos")} />
@@ -66,8 +65,8 @@ return (                                                                        
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-20 md:gap-28 xl:gap-36 xl:py-80">
-                    <div className="w-full flex flex-col justify-center items-center gap-12 sm:gap-16 md:gap-24 xl:gap-32">
+                <div className="flex flex-col gap-20 md:gap-28 xl:gap-36 xl:pt-80">
+                    <div className="w-full text-center flex flex-col justify-center items-center gap-12 sm:gap-16 md:gap-24 xl:gap-32">
                         <h2 className='text-3xl 2xl:text-4xl 3xl:text-5xl'>{getText("languages i know","lenguajes que sé")}:</h2>
                         <div className="w-full flex flex-wrap justify-evenly items-center gap-4 md:gap-6 xl:px-24">
                             <IconList icon={java} text="java" />

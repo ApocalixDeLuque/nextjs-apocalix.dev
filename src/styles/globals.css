@@ -17,6 +17,10 @@
     -o-user-drag: none;
   }
 
+  textarea {
+    resize: none;
+  }
+
   @keyframes blink {
     0% {
       opacity: 1;

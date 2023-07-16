@@ -6,9 +6,15 @@ import { useLanguage } from './utils/LanguageContext'
 
 const Footer = () => {
     const { getText } = useLanguage();
+    const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+    function scrollToTop() {
+        if (!isBrowser()) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     return (
     <footer className='w-full flex flex-col xl:flex-row items-center justify-center bg-dark gap-16 md:gap-32 py-32 px-8 sm:p-16 xl:py-40 xl:px-32'>
-        <Link scroll={false} className='w-fit flex flex-row gap-4' href="/"> 
+        <Link scroll={false} className='w-fit flex flex-row gap-4' href="/" onClick={scrollToTop}> 
             <Image className='invert w-8 h-8 xs:h-10 xs:w-10 md:h-12 md:w-12' src={moon} alt='logo'></Image>
             <p className="text-3xl xxs:text-4xl md:text-5xl font-semibold text-light">apocalix.dev</p>
         </Link>

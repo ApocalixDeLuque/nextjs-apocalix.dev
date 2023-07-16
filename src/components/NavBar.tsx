@@ -15,6 +15,13 @@ const Navbar = () => {
     const [currentPath, setCurrentPath] = useState(router.asPath)
     const [text, setText] = useState('')
 
+    const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
+    function scrollToTop() {
+        if (!isBrowser()) return;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
 
     useEffect(() => {
         const handleRouteChange = (url: string) => {
@@ -51,7 +58,7 @@ const Navbar = () => {
         <section className='w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-4 px-4 xs:px-16 xl:px-32 3xl:py-8'>
             <div className='text-[19px] xl:text-2xl 2xl:text-3xl 3xl:text-4xl w-full h-fit flex items-center justify-between max-w-[1800px]'>
                 <div className='flex font-semibold items-center justify-center'>
-                    <Link scroll={false} className='flex items-center gap-2 sm:gap-4' href='/'>
+                    <Link scroll={false} className='flex items-center gap-2 sm:gap-4' href='/' onClick={scrollToTop}>
                         <Image className='w-6 h-6 flex' src={moon} alt='logo' />
                         <p>apocalix.dev</p>
                     </Link>
@@ -73,6 +80,7 @@ const Navbar = () => {
                             <p className='xl:text-dark text-gray hidden lg:flex group-hover:text-light transition-all duration-[250ms]'>{getText("english","español")}</p>
                         </div>
                     </CustomTooltip>
+                    {/* TODO : Add font family natively to the website*/}
                     <div className='flex xl:hidden items-center justify-center p-1 sm:px-5 sm:py-2 xl:p-3 sm:bg-lightgray rounded-full gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer' onClick={toggleLanguage}> {/* implement dropdown */}
                         <Image src={menu} alt='web' className='w-6 h-6 group-hover:invert transition-all duration-[250ms]'/>
                         <p className='hidden text-dark sm:flex group-hover:text-light transition-all duration-[250ms]'>menu</p>
