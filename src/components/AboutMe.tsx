@@ -33,9 +33,9 @@ const TextList = ({ divClassName='', pageURL, fontSize = 24, placement = "top", 
 
 const IconList = ({ icon, text, opacity = "0.5" }: IconListProps) => {
     return (
-        <div className='lg:w-full lg:max-w-[200px] flex flex-col justify-center items-center gap-4 md:gap-6 lg:gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300'>
-            <Image className='flex justify-center items-center w-10 md:w-16 lg:w-32 aspect-square opacity-50' style={{opacity}} src={icon} alt='icon'/>
-            <p className='max-w-[100px] sm:max-w-[200px] w-full text-center text-lg md:text-xl lg:text-4xl'>{text}</p>
+        <div className='lg:w-full lg:max-w-[200px] flex flex-col justify-center items-center gap-4 xl:gap-6 2xl:gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300'>
+            <Image className='flex justify-center items-center w-10 md:w-16 lg:w-20 xl:w-24 2x:w-32 aspect-square opacity-50' style={{opacity}} src={icon} alt='icon'/>
+            <p className='max-w-[100px] sm:max-w-[200px] w-full text-center text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl'>{text}</p>
         </div>
     );
 };

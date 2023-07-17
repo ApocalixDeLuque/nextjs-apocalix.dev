@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { useLanguage } from './utils/LanguageContext'
 
 const Footer = () => {
-    const { getText } = useLanguage();
-    const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+    const { getText } = useLanguage()
+    const isBrowser = () => typeof window !== 'undefined'
 
     function scrollToTop() {
-        if (!isBrowser()) return;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (!isBrowser()) return
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
     return (
     <footer className='w-full flex flex-col xl:flex-row items-center justify-center bg-dark gap-16 md:gap-32 py-32 px-8 sm:p-16 xl:py-40 xl:px-32'>
