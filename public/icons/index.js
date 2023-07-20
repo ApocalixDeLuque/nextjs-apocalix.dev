@@ -1,4 +1,5 @@
 export { default as c } from "./c.png"
+export { default as close } from "./close.png"
 export { default as css } from "./css.png"
 export { default as cvarrow } from "./cvarrow.png"
 export { default as dbarrow } from "./dbarrow.png"

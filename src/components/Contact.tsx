@@ -106,7 +106,7 @@ const Contact = () => {
                         <div className='flex flex-col lg:flex-row gap-3'>
                             <div className='w-full flex flex-col lg:max-w-[50%] gap-3'>
                                 <input className='bg-lightgray rounded-[16px] text-dark p-3' placeholder='name' name='name' onChange={onInputChange} value={formState.name} required />
-                                <input className='bg-lightgray rounded-[16px] text-dark p-3' placeholder='email' name='email' onChange={onInputChange} value={formState.email} required />
+                                <input className='bg-lightgray rounded-[16px] text-dark p-3' placeholder='email' name='email' type="email" onChange={onInputChange} value={formState.email} required />
                                 <input className='bg-lightgray rounded-[16px] text-dark p-3' placeholder='subject' name='subject' onChange={onInputChange} value={formState.subject} required />
                             </div>
                             <textarea className='bg-lightgray rounded-[16px] text-dark p-3 w-full justify-start min-h-fit' rows={5} placeholder='message' name='message' onChange={onInputChange} value={formState.message} required />
