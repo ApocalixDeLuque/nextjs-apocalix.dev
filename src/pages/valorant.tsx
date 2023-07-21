@@ -30,8 +30,9 @@ const Valorant = () => {
     }
 
     return (
-        <section className="flex flex-col justify-start items-center h-screen py-4 px-4 xs:px-16 xl:px-32 3xl:py-8 bg-[url('../../public/hero-pattern.png')] bg-center ">
+        <section className="flex flex-col justify-start items-center h-screen py-4 px-4 xs:px-16 xl:px-32 3xl:py-8 bg-[url('/hero-pattern.png')] bg-center ">
             <h2 className='font-semibold text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl py-16 min-900:py-32'>valorant 🌙</h2>
+                    {/* TODO: make it actually work */}
             <div className='w-full flex flex-col gap-3 max-w-2xl border rounded-[16px] border-lightgray p-4 bg-light'>
                 <p className="text-red">Riot ID: </p>
                 <CopyClipboard/>

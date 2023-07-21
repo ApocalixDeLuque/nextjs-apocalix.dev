@@ -90,6 +90,8 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='2xl:text-2xl 3xl:text-3xl flex items-center justify-center text-gray gap-6'>
+                    {/* TODO: fix so that this is hidden if not on mainpage. */}
+                    {/* TODO: add an "other" button to navigate to pages shown in footer */}
                     <nav className=' hidden lg:flex gap-6'>
                         <Link scroll={false} href={`#${getText("home","inicio")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("home", "inicio")}</p></Link>
                         <Link scroll={false} href={`#${getText("projects","proyectos")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("projects", "proyectos")}</p></Link>

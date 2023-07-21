@@ -29,9 +29,13 @@ export default function Home() {
             </Head>
 
             {/* TEMPORARY WARNINGS, REMOVE LATER */}
+            {/* TODO : Add font family natively to the website */}
+            {/* TODO : Add background png to display on production */}
+            {/* TODO : Update / slash when going to a new p[age in navbar */}
+
             <Snackbar open={infoOpen} autoHideDuration={6000}>
                 <Alert className='flex items-center justify-center text-center' severity="info" onClose={infoClose}>
-                    {getText("currently working on: contact form", "actualmente trabajando en: formulario de contacto")} :)
+                    {getText("currently working on: social media page", "actualmente trabajando en: página de redes sociales")} :)
                 </Alert>
             </Snackbar>
             <Snackbar open={warningOpen} autoHideDuration={6000}>
