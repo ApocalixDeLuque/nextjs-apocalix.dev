@@ -98,7 +98,6 @@ const Navbar = () => {
                         <Link scroll={false} href={`#${getText("about-me","sobre-mi")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("about me", "sobre mí")}</p></Link>
                         <Link scroll={false} href={`#${getText("contact","contacto")}`}><p className='hover:text-red transition-all duration-[250ms]'>{getText("contact", "contacto")}</p></Link>
                     </nav>
-                    {/* TODO : Add font family natively to the website*/}
                     {toggleMenu
                         ? 
                         <div className='flex select-none items-center justify-center rounded-[16px] gap-2 group hover:cursor-pointer' onClick={() => setToggleMenu(false)}> {/* implement dropdown */}

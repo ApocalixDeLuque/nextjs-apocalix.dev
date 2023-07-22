@@ -50,10 +50,7 @@ const Projects = () => {
             <div className='w-full h-fit text-center sm:text-start flex flex-col items-center gap-8 sm:gap-16 xl:gap-32 max-w-[1800px]'>
                 <h2 className='w-full font-semibold text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl'>{getText("projects", "proyectos")} 💻</h2>
                 <div className='w-full grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-16'>
-                    <ProjectCard pageURL={"https://arteneural.vercel.app/"} githubURL={"https://github.com/ApocalixDeLuque/arteneural"} title="arteneural" preview={page3}/>
-                    <ProjectCard pageURL={"https://apocalix-dev.vercel.app/"} githubURL={"https://github.com/ApocalixDeLuque/apocalix.dev"} title="portfolio" preview={page2}/>
-                    <ProjectCard pageURL={"https://arteneural.vercel.app/"} githubURL={"https://github.com/ApocalixDeLuque/react-testing"} title="image gallery" preview={page1}/>
-                    <ProjectCard pageURL={"https://login-system123.vercel.app/"} githubURL={"https://github.com/ApocalixDeLuque/react-testing"} title="login system" preview={page4}/>
+                    <ProjectCard pageURL={"https://apocalix.dev"} githubURL={"https://github.com/ApocalixDeLuque/nextjs-apocalix.dev"} title="portfolio" preview={page2}/>
                 </div>
             </div>
         </section>
