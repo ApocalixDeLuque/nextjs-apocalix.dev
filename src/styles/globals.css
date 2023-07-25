@@ -5,36 +5,36 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: Poppins, sans-serif;
-    scroll-behavior:smooth;
-  }
-
-  img {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
-  }
-
-  textarea {
-    resize: none;
-  }
-
-  @keyframes blink {
-    0% {
-      opacity: 1;
+    html {
+        font-family: Poppins, sans-serif;
+        scroll-behavior: smooth;
     }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 
-  .blink {
-    animation: blink 1s infinite;
-  }
+    img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .blink {
+        animation: blink 1s infinite;
+    }
 }
