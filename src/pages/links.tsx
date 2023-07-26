@@ -7,15 +7,17 @@ import {
     apocalixdeluque,
     apple_music,
     battle_net,
+    catmusic,
     discord,
     epic_games,
     facebook,
     github,
     instagram,
+    jiji,
+    lastfm,
     linkedin,
     mail,
     meta,
-    padlock,
     spotify,
     steam,
     threads,
@@ -24,12 +26,15 @@ import {
     twitter,
     ubisoft,
     valorant,
+    yoshi,
     youtube
 } from '../../public/icons';
 
 var access_token = process.env.NEXT_PUBLIC_META_CLIENT_TOKEN;
 var app_id = process.env.NEXT_PUBLIC_META_APP_ID;
 var user_id = process.env.NEXT_PUBLIC_META_USER_ID;
+
+//TODO: add components for each link so it's easier to add new ones and lower the amount of code
 
 interface FacebookUserData {
     name: string;
@@ -55,7 +60,7 @@ const Links = () => {
     }
     return (
         <section className="flex flex-col items-center justify-start bg-[url('/hero-pattern.png')] bg-center px-4 py-4 xs:px-16 xl:px-32 3xl:py-8 gap-3">
-            <h2 className="py-16 text-4xl font-semibold md:text-5xl min-900:py-32 xl:text-6xl 2xl:text-7xl">
+            <h2 className="py-16 text-4xl font-semibold md:text-5xl md:py-32 xl:text-6xl 2xl:text-7xl">
                 {getText('all my links!', 'todos mis links!')} 🚀
             </h2>
             <div className="hidden max-w-2xl gap-3 rounded-[16px] border border-lightgray bg-light p-4">
@@ -92,12 +97,12 @@ const Links = () => {
 
             
             */}
-            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-around items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
-                <div className="flex flex-col justify-center items-center gap-3">
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
                     <Image className="w-20 h-20" src={meta} alt="logo" />
                     <p className="text-center">@the.jonathn</p>
                 </div>
-                <div className="flex flex-col min-900:flex-row gap-3 min-900:gap-6">
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
                     <div
                         onClick={() =>
                             window.open(
@@ -136,12 +141,12 @@ const Links = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-around items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
-                <div className="flex flex-col justify-center items-center gap-3">
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
                     <Image className="w-20 h-20" src={twitter} alt="logo" />
                     <p className="text-center">twitters</p>
                 </div>
-                <div className="flex flex-col min-900:flex-row gap-3 min-900:gap-6">
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
                     <div
                         onClick={() =>
                             window.open(
@@ -175,7 +180,6 @@ const Links = () => {
                                 className="rounded-md"
                                 src={apocalixdeluque}
                                 alt="profile picture"
-                                fill
                             />
                         </div>
                         <p>@apocalixdeluque</p>
@@ -183,7 +187,7 @@ const Links = () => {
                     <div
                         onClick={() =>
                             window.open(
-                                'https://www.twitter.com/just_apo',
+                                'https://www.twitter.com/thoughtful_apo',
                                 'mywindow'
                             )
                         }
@@ -192,12 +196,137 @@ const Links = () => {
                         <div className="relative aspect-square w-10">
                             <Image
                                 className="rounded-md"
-                                src={padlock}
+                                src={jiji}
                                 alt="profile picture"
-                                fill
                             />
                         </div>
-                        <p>@just_apo</p>
+                        <p>@thoughtful_apo</p>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
+                    <Image
+                        className="w-20 h-20 rounded-md"
+                        src={catmusic}
+                        alt="logo"
+                    />
+                    <p className="text-center">music &lt;3</p>
+                </div>
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://www.last.fm/user/ApocalixDeLuque',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={lastfm}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>last.fm</p>
+                    </div>
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://music.apple.com/profile/thejonathn',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={apple_music}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>apple music</p>
+                    </div>
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://open.spotify.com/user/cnoa3xwcu59hsbxbsrtujlg65',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={spotify}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>spotify</p>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
+                    <Image
+                        className="w-20 h-20 rounded-md"
+                        src={yoshi}
+                        alt="logo"
+                    />
+                    <p className="text-center">gaming</p>
+                </div>
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://steamcommunity.com/id/ApoccalixDeLuque/',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={steam}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>steam</p>
+                    </div>
+                    <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={ubisoft}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>ApocalixDeLuque</p>
+                    </div>
+                    <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={epic_games}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>ApocalixDeLuque</p>
+                    </div>
+                    <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={battle_net}
+                                alt="profile picture"
+                            />
+                        </div>
+                        <p>Apocalix#11419</p>
                     </div>
                 </div>
             </div>
@@ -223,7 +352,6 @@ const Links = () => {
                             className="rounded-md"
                             src={twitch}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>twitch</p>
@@ -242,49 +370,11 @@ const Links = () => {
                             className="rounded-md"
                             src={youtube}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>youtube</p>
                 </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://open.spotify.com/user/cnoa3xwcu59hsbxbsrtujlg65',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={spotify}
-                            alt="profile picture"
-                            fill
-                        />
-                    </div>
-                    <p>spotify</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://music.apple.com/profile/thejonathn',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={apple_music}
-                            alt="profile picture"
-                            fill
-                        />
-                    </div>
-                    <p>apple music</p>
-                </div>
+
                 <div
                     onClick={() =>
                         window.open(
@@ -299,7 +389,6 @@ const Links = () => {
                             className="rounded-md"
                             src={discord}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>discord</p>
@@ -318,7 +407,6 @@ const Links = () => {
                             className="rounded-md"
                             src={github}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>github</p>
@@ -334,29 +422,9 @@ const Links = () => {
                             className="rounded-md"
                             src={valorant}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>valorant</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://steamcommunity.com/id/ApoccalixDeLuque/',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={steam}
-                            alt="profile picture"
-                            fill
-                        />
-                    </div>
-                    <p>steam</p>
                 </div>
                 <div
                     onClick={() =>
@@ -372,7 +440,6 @@ const Links = () => {
                             className="rounded-md"
                             src={linkedin}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>linkedin</p>
@@ -388,10 +455,9 @@ const Links = () => {
                             className="rounded-md"
                             src={mail}
                             alt="profile picture"
-                            fill
                         />
                     </div>
-                    <p>mail</p>
+                    <p>email</p>
                 </div>
                 <div
                     onClick={() =>
@@ -407,43 +473,9 @@ const Links = () => {
                             className="rounded-md"
                             src={tiktok}
                             alt="profile picture"
-                            fill
                         />
                     </div>
                     <p>tiktok</p>
-                </div>
-                <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={ubisoft}
-                            alt="profile picture"
-                            fill
-                        />
-                    </div>
-                    <p>ApocalixDeLuque</p>
-                </div>
-                <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={epic_games}
-                            alt="profile picture"
-                            fill
-                        />
-                    </div>
-                    <p>ApocalixDeLuque</p>
-                </div>
-                <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={battle_net}
-                            alt="profile picture"
-                            fill
-                        />
-                    </div>
-                    <p>Apocalix#11419</p>
                 </div>
             </div>
         </section>

@@ -38,6 +38,7 @@ const Menu = () => {
 
 const Navbar = () => {
     const router = useRouter();
+    const [isMainPage, setIsMainPage] = useState(false);
     const { getText, toggleLanguage } = useLanguage();
 
     const [currentPath, setCurrentPath] = useState(router.asPath);
@@ -49,6 +50,10 @@ const Navbar = () => {
         if (!isBrowser()) return;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    useEffect(() => {
+        setIsMainPage(router.pathname === '/');
+    }, [router.pathname]);
 
     useEffect(() => {
         const handleRouteChange = (url: string) => {
@@ -112,40 +117,42 @@ const Navbar = () => {
                 <div className="2xl:text-2xl 3xl:text-3xl flex items-center justify-center text-gray gap-6">
                     {/* TODO: fix so that this is hidden if not on mainpage. */}
                     {/* TODO: add an "other" button to navigate to pages shown in footer */}
-                    <nav className=" hidden lg:flex gap-6">
-                        <Link
-                            scroll={false}
-                            href={`#${getText('home', 'inicio')}`}
-                        >
-                            <p className="hover:text-red transition-all duration-[250ms]">
-                                {getText('home', 'inicio')}
-                            </p>
-                        </Link>
-                        <Link
-                            scroll={false}
-                            href={`#${getText('projects', 'proyectos')}`}
-                        >
-                            <p className="hover:text-red transition-all duration-[250ms]">
-                                {getText('projects', 'proyectos')}
-                            </p>
-                        </Link>
-                        <Link
-                            scroll={false}
-                            href={`#${getText('about-me', 'sobre-mi')}`}
-                        >
-                            <p className="hover:text-red transition-all duration-[250ms]">
-                                {getText('about me', 'sobre mí')}
-                            </p>
-                        </Link>
-                        <Link
-                            scroll={false}
-                            href={`#${getText('contact', 'contacto')}`}
-                        >
-                            <p className="hover:text-red transition-all duration-[250ms]">
-                                {getText('contact', 'contacto')}
-                            </p>
-                        </Link>
-                    </nav>
+                    {isMainPage && (
+                        <nav className=" hidden lg:flex gap-6">
+                            <Link
+                                scroll={false}
+                                href={`#${getText('home', 'inicio')}`}
+                            >
+                                <p className="hover:text-red transition-all duration-[250ms]">
+                                    {getText('home', 'inicio')}
+                                </p>
+                            </Link>
+                            <Link
+                                scroll={false}
+                                href={`#${getText('projects', 'proyectos')}`}
+                            >
+                                <p className="hover:text-red transition-all duration-[250ms]">
+                                    {getText('projects', 'proyectos')}
+                                </p>
+                            </Link>
+                            <Link
+                                scroll={false}
+                                href={`#${getText('about-me', 'sobre-mi')}`}
+                            >
+                                <p className="hover:text-red transition-all duration-[250ms]">
+                                    {getText('about me', 'sobre mí')}
+                                </p>
+                            </Link>
+                            <Link
+                                scroll={false}
+                                href={`#${getText('contact', 'contacto')}`}
+                            >
+                                <p className="hover:text-red transition-all duration-[250ms]">
+                                    {getText('contact', 'contacto')}
+                                </p>
+                            </Link>
+                        </nav>
+                    )}
                     {toggleMenu ? (
                         <div
                             className="flex select-none items-center justify-center rounded-[16px] gap-2 group hover:cursor-pointer"
@@ -167,7 +174,7 @@ const Navbar = () => {
                     )}
                     {toggleMenu && (
                         <div className="absolute rounded-[16px] 3xl:text-3xl top-[68px] sm:top-[80px] right-1 xs:right-[12px] sm:right-[52px] xl:right-[104px] flex flex-col text-center gap-4 bg-light p-4 border border-lightgray select-none">
-                            <Menu />
+                            {isMainPage && <Menu />}
 
                             <CustomTooltip
                                 followCursor

@@ -175,7 +175,7 @@ const Contact = () => {
                             <div className="w-full flex flex-col lg:max-w-[50%] gap-3">
                                 <input
                                     className="bg-lightgray rounded-[16px] text-dark p-3"
-                                    placeholder="name"
+                                    placeholder={getText('name', 'nombre')}
                                     name="name"
                                     onChange={onInputChange}
                                     value={formState.name}
@@ -183,7 +183,7 @@ const Contact = () => {
                                 />
                                 <input
                                     className="bg-lightgray rounded-[16px] text-dark p-3"
-                                    placeholder="email"
+                                    placeholder={getText('email', 'correo')}
                                     name="email"
                                     type="email"
                                     onChange={onInputChange}
@@ -192,7 +192,7 @@ const Contact = () => {
                                 />
                                 <input
                                     className="bg-lightgray rounded-[16px] text-dark p-3"
-                                    placeholder="subject"
+                                    placeholder={getText('subject', 'asunto')}
                                     name="subject"
                                     onChange={onInputChange}
                                     value={formState.subject}
@@ -202,7 +202,7 @@ const Contact = () => {
                             <textarea
                                 className="bg-lightgray rounded-[16px] text-dark p-3 w-full justify-start min-h-fit"
                                 rows={5}
-                                placeholder="message"
+                                placeholder={getText('message', 'mensaje')}
                                 name="message"
                                 onChange={onInputChange}
                                 value={formState.message}
@@ -224,10 +224,10 @@ const Contact = () => {
                             >
                                 <p className="text-light group-hover:text-light transition-all duration-[250ms]">
                                     {isSubmitting
-                                        ? 'Sending...'
+                                        ? getText('sending...', 'enviando...')
                                         : hasSubmitted
-                                        ? 'Sent'
-                                        : 'Send'}
+                                        ? getText('sent!', 'enviado!')
+                                        : getText('send', 'enviar')}
                                 </p>
                             </button>
                         </div>
