@@ -4,11 +4,15 @@ import { useEffect, useState } from 'react';
 import { fetchFacebookUserData } from './api/meta';
 import Link from 'next/link';
 import {
+    amazon,
     apocalixdeluque,
+    apocalixtv,
     apple_music,
     battle_net,
+    catmedia,
     catmusic,
     discord,
+    dogdiscord,
     epic_games,
     facebook,
     github,
@@ -18,6 +22,9 @@ import {
     linkedin,
     mail,
     meta,
+    paypal,
+    pinterest,
+    reddit,
     spotify,
     steam,
     threads,
@@ -56,6 +63,7 @@ const Links = () => {
     }, []);
 
     if (!userData) {
+        //TODO: only set loading stage on image instead of the whole page if it cant access the api
         return <div>Loading...</div>;
     }
     return (
@@ -68,7 +76,7 @@ const Links = () => {
                     <Image
                         className="rounded-[16px]"
                         src={profilePictureUrl}
-                        alt="profile picture"
+                        alt="icon"
                         fill
                     />
                 </div>
@@ -160,7 +168,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={profilePictureUrl}
-                                alt="profile picture"
+                                alt="icon"
                                 fill
                             />
                         </div>
@@ -179,7 +187,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={apocalixdeluque}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>@apocalixdeluque</p>
@@ -197,10 +205,58 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={jiji}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>@thoughtful_apo</p>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
+                    <Image
+                        className="w-20 h-20 rounded-md"
+                        src={dogdiscord}
+                        alt="logo"
+                    />
+                    <p className="text-center">discord</p>
+                </div>
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://discord.com/users/441795026956320778',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={discord}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>{getText('profile', 'perfil')}</p>
+                    </div>
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://discord.gg/qSuKaZvZRR',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={apocalixtv}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>{getText('server', 'servidor')}</p>
                     </div>
                 </div>
             </div>
@@ -227,7 +283,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={lastfm}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>last.fm</p>
@@ -245,7 +301,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={apple_music}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>apple music</p>
@@ -263,10 +319,76 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={spotify}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>spotify</p>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
+                    <Image
+                        className="w-20 h-20 rounded-md"
+                        src={catmedia}
+                        alt="logo"
+                    />
+                    <p className="text-center">media</p>
+                </div>
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://www.twitch.tv/apocalixdeluque',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={twitch}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>twitch</p>
+                    </div>
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://www.youtube.com/@apocalixdeluque8578',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={youtube}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>youtube</p>
+                    </div>
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://www.tiktok.com/@apocalixdeluqu_?lang=es',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={tiktok}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>tiktok</p>
                     </div>
                 </div>
             </div>
@@ -293,7 +415,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={steam}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>steam</p>
@@ -303,7 +425,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={ubisoft}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>ApocalixDeLuque</p>
@@ -313,7 +435,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={epic_games}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>ApocalixDeLuque</p>
@@ -323,7 +445,7 @@ const Links = () => {
                             <Image
                                 className="rounded-md"
                                 src={battle_net}
-                                alt="profile picture"
+                                alt="icon"
                             />
                         </div>
                         <p>Apocalix#11419</p>
@@ -337,145 +459,152 @@ const Links = () => {
 
             
             */}
-            <div className="flex flex-wrap gap-3 justify-center items-center h-fit w-fit">
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://www.twitch.tv/apocalixdeluque',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={twitch}
-                            alt="profile picture"
-                        />
-                    </div>
-                    <p>twitch</p>
+            <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+                <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
+                    <p className="text-center">other</p>
                 </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://www.youtube.com/@apocalixdeluque8578',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={youtube}
-                            alt="profile picture"
-                        />
+                <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://github.com/ApocalixDeLuque',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={github}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>github</p>
                     </div>
-                    <p>youtube</p>
-                </div>
-
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://discord.com/users/441795026956320778',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={discord}
-                            alt="profile picture"
-                        />
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://linkedin.com/in/apocalix',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={linkedin}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>linkedin</p>
                     </div>
-                    <p>discord</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://github.com/ApocalixDeLuque',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={github}
-                            alt="profile picture"
-                        />
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'mailto:contact@apocalix.dev',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={mail}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>email</p>
                     </div>
-                    <p>github</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open('https://apocalix.dev/valorant', 'mywindow')
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={valorant}
-                            alt="profile picture"
-                        />
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://apocalix.dev/valorant',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={valorant}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>valorant</p>
                     </div>
-                    <p>valorant</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://linkedin.com/in/apocalix',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={linkedin}
-                            alt="profile picture"
-                        />
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://reddit.com/u/ApocalixDeLuque',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={reddit}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>reddit</p>
                     </div>
-                    <p>linkedin</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open('mailto:me@apocalix.dev', 'mywindow')
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={mail}
-                            alt="profile picture"
-                        />
+                    <div
+                        onClick={() =>
+                            window.open('https://pin.it/2SP66lq', 'mywindow')
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={pinterest}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>pinterest</p>
                     </div>
-                    <p>email</p>
-                </div>
-                <div
-                    onClick={() =>
-                        window.open(
-                            'https://www.tiktok.com/@the.jonathn',
-                            'mywindow'
-                        )
-                    }
-                    className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
-                >
-                    <div className="relative aspect-square w-10">
-                        <Image
-                            className="rounded-md"
-                            src={tiktok}
-                            alt="profile picture"
-                        />
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://paypal.me/apocalixdeluque',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={paypal}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>paypal</p>
                     </div>
-                    <p>tiktok</p>
+                    <div
+                        onClick={() =>
+                            window.open(
+                                'https://paypal.me/apocalixdeluque',
+                                'mywindow'
+                            )
+                        }
+                        className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
+                    >
+                        <div className="relative aspect-square w-10">
+                            <Image
+                                className="rounded-md"
+                                src={amazon}
+                                alt="icon"
+                            />
+                        </div>
+                        <p>wishlist</p>
+                    </div>
                 </div>
             </div>
         </section>

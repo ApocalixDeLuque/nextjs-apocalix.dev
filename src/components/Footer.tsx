@@ -31,40 +31,6 @@ const Footer = () => {
             <div className="w-full sm:w-fit flex flex-col items-start sm:flex-row gap-10 md:gap-24 xxs:px-8 xs:p-16 md:p-0">
                 <nav className="flex flex-col text-xl 2xl:text-2xl 3xl:text-3xl font-normal md:font-thin 3xl:font-normal text-light gap-2 xl:gap-4">
                     <h2 className="text-3xl 2xl:text-4xl 3xl:text-5xl font-semibold text-light pb-4">
-                        {getText('go to', 'ir hacia')}
-                    </h2>
-                    <Link scroll={false} href={`#${getText('home', 'inicio')}`}>
-                        <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
-                            {getText('home', 'inicio')}
-                        </p>
-                    </Link>
-                    <Link
-                        scroll={false}
-                        href={`#${getText('projects', 'proyectos')}`}
-                    >
-                        <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
-                            {getText('projects', 'proyectos')}
-                        </p>
-                    </Link>
-                    <Link
-                        scroll={false}
-                        href={`#${getText('about-me', 'sobre-mi')}`}
-                    >
-                        <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
-                            {getText('about me', 'sobre mí')}
-                        </p>
-                    </Link>
-                    <Link
-                        scroll={false}
-                        href={`#${getText('contact', 'contacto')}`}
-                    >
-                        <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
-                            {getText('contact', 'contacto')}
-                        </p>
-                    </Link>
-                </nav>
-                <nav className="flex flex-col text-xl 2xl:text-2xl 3xl:text-3xl font-normal md:font-thin 3xl:font-normal text-light gap-2 xl:gap-4">
-                    <h2 className="text-3xl 2xl:text-4xl 3xl:text-5xl font-semibold text-light pb-4">
                         contact{getText('', 'o')}
                     </h2>
                     <Link scroll={false} href="mailto:contact@apocalix.dev">
@@ -99,26 +65,35 @@ const Footer = () => {
                 </nav>
                 <nav className="flex flex-col text-xl 2xl:text-2xl 3xl:text-3xl font-normal md:font-thin 3xl:font-normal text-light gap-2 xl:gap-4">
                     <h2 className="text-3xl 2xl:text-4xl 3xl:text-5xl font-semibold text-light pb-4">
-                        {getText('other', 'otros')}
+                        {getText('go to', 'ir hacia')}
                     </h2>
                     {/* TODO: make social media links page (w/twitter, twitch, etc. styled like discord/linktree/cardd) */}
                     {/* 🔽  className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer" */}
-                    <Link href={`/links`}>
+                    <Link href={`/#home`} scroll={false} onClick={scrollToTop}>
+                        <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
+                            {getText('home', 'inicio')}
+                        </p>
+                    </Link>
+                    <Link href={`/links`} scroll={false} onClick={scrollToTop}>
                         <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
                             {getText('social links', 'mis redes')}
                         </p>
                     </Link>
-                    <Link href={`/charts`}>
+                    <Link href={`/charts`} scroll={false} onClick={scrollToTop}>
                         <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
                             {getText('my music', 'mi música')}
                         </p>
                     </Link>
-                    <Link href={`/valorant`}>
+                    <Link
+                        href={`/valorant`}
+                        scroll={false}
+                        onClick={scrollToTop}
+                    >
                         <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
                             valorant tracker
                         </p>
                     </Link>
-                    <Link href={`/admin`}>
+                    <Link href={`/admin`} scroll={false} onClick={scrollToTop}>
                         <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
                             $ sudo
                         </p>

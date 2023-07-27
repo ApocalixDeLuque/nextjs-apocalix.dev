@@ -15,7 +15,7 @@ export default async function handler(req: any, res: any) {
         try {
             const emailRes = await transporter.sendMail({
                 from: email,
-                to: 'me@apocalix.dev',
+                to: 'contact@apocalix.dev',
                 subject: `Mensaje nuevo de ${name}: ${subject} en apocalix.dev`,
                 html: `<p>Nueva respuesta en el formulario:</p><br>
                         <p><strong>Name: </strong> ${name}</p>
