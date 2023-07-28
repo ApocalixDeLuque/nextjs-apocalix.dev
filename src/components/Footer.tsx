@@ -67,9 +67,7 @@ const Footer = () => {
                     <h2 className="text-3xl 2xl:text-4xl 3xl:text-5xl font-semibold text-light pb-4">
                         {getText('go to', 'ir hacia')}
                     </h2>
-                    {/* TODO: make social media links page (w/twitter, twitch, etc. styled like discord/linktree/cardd) */}
-                    {/* 🔽  className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer" */}
-                    <Link href={`/#home`} scroll={false} onClick={scrollToTop}>
+                    <Link href={`/`} scroll={false} onClick={scrollToTop}>
                         <p className="hover:text-red transition-all duration-[250ms] hover:cursor-pointer">
                             {getText('home', 'inicio')}
                         </p>

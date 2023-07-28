@@ -37,15 +37,15 @@ const Valorant = () => {
                 }
             >
                 <p
-                    className="hover:text-red w-fit transition-all duration-[250ms] hover:cursor-pointer select-none text-start"
+                    className="text-dark hover:text-red w-fit transition-all duration-[250ms] hover:cursor-pointer select-none text-start"
                     onClick={copyToClipboard}
                 >
                     {copySuccess ? (
                         copySuccess
                     ) : (
-                        <p className="text-dark">
+                        <>
                             sushiτгаsh ヰ<span className="text-gray">#ap0</span>
-                        </p>
+                        </>
                     )}
                 </p>
             </CustomTooltip>

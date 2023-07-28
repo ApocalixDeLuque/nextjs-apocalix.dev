@@ -28,6 +28,7 @@ export { default as jiji } from './jiji.png';
 export { default as js } from './js.png';
 export { default as lastfm } from './lastfm.png';
 export { default as linkedin } from './linkedin.png';
+export { default as load } from './load.png';
 export { default as mail } from './mail.png';
 export { default as menu } from './menu.png';
 export { default as meta } from './meta.png';
