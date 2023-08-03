@@ -37,7 +37,7 @@ import {
     youtube
 } from '../../public/icons';
 import CustomTooltip from '@/components/utils/CustomTooltip';
-import { text } from 'stream/consumers';
+import PageHero from '@/components/PageHero';
 
 type UserDataProps = {
     name: string;
@@ -64,6 +64,21 @@ type LinkSectionProps = {
 };
 
 //prettier-ignore
+const LinkSection = ({ src=load, title = '', children, hideImage = false }: LinkSectionProps) => {
+    return (
+        <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
+            <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
+                {!hideImage && (<Image className="w-16 h-16 sm:w-20 sm:h-20 rounded-md" src={src} alt="logo" />)}
+                <p className="text-sm sm:text-base text-center">{title}</p>
+            </div>
+            <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
+                {children}
+            </div>
+        </div>
+    );
+};
+
+//prettier-ignore
 const LinkItem = ({ src = load, title = '', link = '' }: LinkItemProps) => {
     return (
         <div
@@ -71,9 +86,9 @@ const LinkItem = ({ src = load, title = '', link = '' }: LinkItemProps) => {
             className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2"
         >
             <div className='w-[20%] min-w-fit flex justify-center'>
-                <Image width={40} height={40} className="rounded-md min-w-[40px]" src={src} alt="icon"/>
+                <Image width={30} height={30} className="rounded-md min-w-[30px] min-400:min-w-[35px] xs:min-w-[40px]" src={src} alt="icon"/>
             </div>
-            <p className='w-[80%] flex justify-center'>{title}</p>
+            <p className='text-sm sm:text-base w-[80%] flex justify-center'>{title}</p>
         </div>
     );
 };
@@ -94,39 +109,19 @@ const LinkCopyItem = ({ src = load, textToCopy = '' }: LinkCopyItemProps) => {
     };
 
     return (
-        <CustomTooltip
-            followCursor
-            title={
-                <p>{getText('copy to clipboard', 'copiar al portapapeles')}</p>
-            }
-        >
+        <CustomTooltip followCursor title={<p>{getText('copy to clipboard', 'copiar al portapapeles')}</p>}>
             <div className="flex items-center gap-3 transition-all duration-[250ms] hover:scale-110 hover:cursor-pointer border shadow bg-white border-lightgray rounded-[16px] p-2">
                 <div className='w-[20%] min-w-fit flex justify-center'>
-                    <Image width={40} height={40} className="rounded-md min-w-[40px]" src={src} alt="icon"/>
+                    <Image width={30} height={30} className="rounded-md min-w-[30px] min-400:min-w-[35px] xs:min-w-[40px]" src={src} alt="icon"/>
                 </div>
                 <p
-                    className="w-[80%] flex justify-center text-dark hover:text-red min-w-fit transition-all duration-[250ms] hover:cursor-pointer select-none text-start"
+                    className="text-sm sm:text-base w-[80%] flex justify-center text-dark hover:text-red min-w-fit transition-all duration-[250ms] hover:cursor-pointer select-none text-start"
                     onClick={copyToClipboard}
                 >
                     {copySuccess ? copySuccess : `${textToCopy} 📋`}
                 </p>
             </div>
         </CustomTooltip>
-    );
-};
-
-//prettier-ignore
-const LinkSection = ({ src=load, title = '', children, hideImage = false }: LinkSectionProps) => {
-    return (
-        <div className="w-full max-w-[1800px] flex gap-6 rounded-[16px] justify-between items-center border border-lightgray hover:border-gray transition-all duration-[250ms] bg-light p-4">
-            <div className="flex flex-col justify-center items-center gap-3 w-[30%] min-w-fit">
-                {!hideImage && (<Image className="w-20 h-20" src={src} alt="logo" />)}
-                <p className="text-center">{title}</p>
-            </div>
-            <div className="flex flex-wrap flex-col md:flex-row gap-3 md:gap-6 w-full justify-center">
-                {children}
-            </div>
-        </div>
     );
 };
 
@@ -143,11 +138,7 @@ const Links = () => {
     }, []);
 
     return (
-        <section className="flex flex-col items-center justify-start bg-[url('/hero-pattern.png')] bg-center px-4 py-4 xs:px-16 xl:px-32 3xl:py-8 gap-3">
-            <h2 className="py-16 text-4xl font-semibold md:text-5xl md:py-32 xl:text-6xl 2xl:text-7xl">
-                {getText('all my links!', 'todos mis links!')} 🚀
-            </h2>
-
+        <PageHero title={getText('all my links! 🚀', 'todos mis links! 🚀')}>
             <LinkSection src={meta} title="@the.jonathn">
                 <LinkItem
                     link="https://www.facebook.com/the.jonathn"
@@ -251,6 +242,11 @@ const Links = () => {
                     src={steam}
                     title="steam"
                 />
+                <LinkItem
+                    link="https://apocalix.dev/valorant"
+                    src={valorant}
+                    title="valorant"
+                />
                 <p className="text-center md:hidden">click to copy:</p>
                 <LinkCopyItem src={steam} textToCopy="491933584" />
                 <LinkCopyItem src={ubisoft} textToCopy="ApocalixDeLuque" />
@@ -279,11 +275,6 @@ const Links = () => {
                     title="email"
                 />
                 <LinkItem
-                    link="https://apocalix.dev/valorant"
-                    src={valorant}
-                    title="valorant"
-                />
-                <LinkItem
                     link="https://reddit.com/u/ApocalixDeLuque"
                     src={reddit}
                     title="reddit"
@@ -304,7 +295,7 @@ const Links = () => {
                     title="wishlist"
                 />
             </LinkSection>
-        </section>
+        </PageHero>
     );
 };
 

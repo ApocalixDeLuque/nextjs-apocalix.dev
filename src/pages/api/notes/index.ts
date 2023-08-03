@@ -21,7 +21,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         GET: async (req: NextApiRequest, res: NextApiResponse) => {
             const { Note } = await connect(); // connect to database
             const notes = await Note.find({}).catch(catcher);
-            console.log('Notes retrieved:', notes);
             res.json(notes);
         },
         // RESPONSE POST REQUESTS

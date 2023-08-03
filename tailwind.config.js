@@ -10,6 +10,7 @@ module.exports = {
     theme: {
         screens: {
             xxs: '360px',
+            'min-400': '400px',
             xs: '550px',
             sm: '640px',
             md: '768px',
@@ -27,7 +28,8 @@ module.exports = {
                 light: '#FFFFFF',
                 red: '#F50E35',
                 green: '#5CF64A',
-
+                lightlavender: '#F8F7FF',
+                lavender: '#DCD6FF',
                 inherit: 'inherit'
             }
         }

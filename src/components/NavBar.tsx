@@ -96,7 +96,7 @@ const Navbar = () => {
 
     return (
         <section className="w-full flex justify-center sticky top-0 z-10 border-b-2 border-lightgray bg-light py-4 px-4 xs:px-16 xl:px-32 3xl:py-8">
-            <div className="text-[19px] xl:text-2xl 2xl:text-3xl 3xl:text-4xl w-full h-fit flex items-center justify-between max-w-[1800px]">
+            <div className="text-[19px] xl:text-xl 2xl:text-2xl 3xl:text-3xl w-full h-fit flex items-center justify-between max-w-[1800px]">
                 <div className="flex font-semibold items-center justify-center">
                     <Link
                         scroll={false}
@@ -105,7 +105,9 @@ const Navbar = () => {
                         onClick={scrollToTop}
                     >
                         <Image className="w-6 h-6 flex" src={moon} alt="logo" />
-                        <p>apocalix.dev</p>
+                        <p className="xl:text-2xl 2xl:text-3xl 3xl:text-4xl ">
+                            apocalix.dev
+                        </p>
                     </Link>
                     <div className="hidden xxs:flex">
                         <p className="text-lightgray">
@@ -114,8 +116,7 @@ const Navbar = () => {
                         </p>
                     </div>
                 </div>
-                <div className="2xl:text-2xl 3xl:text-3xl flex items-center justify-center text-gray gap-6">
-                    {/* TODO: fix so that this is hidden if not on mainpage. */}
+                <div className="flex items-center justify-center text-gray gap-6">
                     {/* TODO: add an "other" button to navigate to pages shown in footer */}
                     {isMainPage && (
                         <nav className=" hidden lg:flex gap-6">
@@ -158,8 +159,6 @@ const Navbar = () => {
                             className="flex select-none items-center justify-center rounded-[16px] gap-2 group hover:cursor-pointer"
                             onClick={() => setToggleMenu(false)}
                         >
-                            {' '}
-                            {/* implement dropdown */}
                             <Image src={close} alt="web" className="w-6 h-6" />
                         </div>
                     ) : (
@@ -167,13 +166,11 @@ const Navbar = () => {
                             className="flex select-none items-center justify-center rounded-[16px] gap-2 group hover:cursor-pointer"
                             onClick={() => setToggleMenu(true)}
                         >
-                            {' '}
-                            {/* implement dropdown */}
                             <Image src={menu} alt="web" className="w-6 h-6" />
                         </div>
                     )}
                     {toggleMenu && (
-                        <div className="absolute rounded-[16px] 3xl:text-3xl top-[68px] sm:top-[80px] right-1 xs:right-[12px] sm:right-[52px] xl:right-[104px] flex flex-col text-center gap-4 bg-light p-4 border border-lightgray select-none">
+                        <div className="absolute rounded-[16px] 3xl:text-3xl top-[68px] sm:top-[80px] right-1 xs:right-[12px] sm:right-[52px] xl:right-[104px] flex flex-col text-center gap-3 bg-light p-3 border border-lightgray select-none">
                             {isMainPage && <Menu />}
 
                             <CustomTooltip
@@ -188,7 +185,7 @@ const Navbar = () => {
                                 }
                             >
                                 <div
-                                    className="flex items-center justify-center p-3 bg-transparent rounded-[16px] gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer"
+                                    className="flex items-center justify-center p-2 bg-transparent rounded-[16px] gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer"
                                     onClick={toggleLanguage}
                                 >
                                     <Image
@@ -217,7 +214,7 @@ const Navbar = () => {
                             >
                                 <Link
                                     scroll={false}
-                                    className="flex items-center justify-center p-3 bg-transparent rounded-[16px] gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer"
+                                    className="flex items-center justify-center p-2 bg-transparent rounded-[16px] gap-2 hover:bg-red transition-all duration-[250ms] group hover:cursor-pointer"
                                     href="/admin"
                                     onClick={scrollToTop}
                                 >
