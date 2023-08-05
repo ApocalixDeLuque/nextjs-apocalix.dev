@@ -1,7 +1,7 @@
 import PageHero from '@/components/PageHero';
 import { useLanguage } from '@/components/utils/LanguageContext';
 import { ObjectId } from 'mongodb';
-import { ChangeEvent, DOMAttributes, FormEventHandler, useState } from 'react';
+import { DOMAttributes, FormEventHandler, useState } from 'react';
 
 interface Note {
     title: string;
@@ -16,16 +16,16 @@ interface IndexProps {
 }
 
 interface TagItem {
-    tag: string;
+    title: string;
     color: string;
     onClick?: DOMAttributes<HTMLParagraphElement>['onClick'];
 }
 
 //prettier-ignore
-const Tag = ({ tag, color, onClick }: TagItem) => {
+const Tag = ({ title, color, onClick }: TagItem) => {
     return (
-        <p onClick={onClick} className={`flex bg-opacity-50 w-fit px-2 py-1 shadow rounded-[16px] text-xs sm:text-sm bg-${color} border-${color} border`}>
-            {tag}
+        <p onClick={onClick} className={`flex bg-opacity-50 w-fit px-2 py-1 shadow rounded-none text-xs sm:text-sm bg-${color} border-${color === 'white' ? 'lightgray' : color} ${color === 'white' ? 'text-lightgray' : 'text-dark' } border hover:rounded-[16px] hover:text-dark transition-all duration-[250ms] hover:cursor-pointer select-none`}>
+            {title}
         </p>
     )
 };
@@ -49,12 +49,12 @@ const FilterItems = () => {
             <div className="flex flex-col gap-1">
                 <p>{getText('tags:', 'etiquetas:')}</p>
                 <div className="flex flex-wrap gap-1 justify-start items-start w-full">
-                    <Tag tag="important" color="red" />
-                    <Tag tag="to-do" color="blue-500" />
-                    <Tag tag="school" color="yellow-500" />
-                    <Tag tag="personal" color="green" />
-                    <Tag tag="quote" color="purple-500" />
-                    <Tag tag="unimportant" color="lightgray" />
+                    <Tag title="important" color="red" />
+                    <Tag title="to-do" color="blue-500" />
+                    <Tag title="school" color="yellow-500" />
+                    <Tag title="personal" color="green" />
+                    <Tag title="quote" color="purple-500" />
+                    <Tag title="unimportant" color="lightgray" />
                 </div>
             </div>
         </div>
@@ -66,6 +66,7 @@ const AddNoteForm = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [tags, setTags] = useState<string[]>([]); // Change the type of the tags state to string[]
+    const [tagColor, setTagColor] = useState('white');
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
         event.preventDefault();
@@ -84,16 +85,32 @@ const AddNoteForm = () => {
             // TODO: display a success message to the user
             window.location.reload();
         } else {
-            // The response from the API was an error
-            // You should handle it appropriately
+            // The response from the API was an error, handle it appropriately
             console.log('error: ');
             console.log(response);
         }
     };
 
+    const ClickableTag = ({ title, color }: TagItem) => {
+        return (
+            <Tag
+                title={title}
+                onClick={() => {
+                    setTagColor(tagColor == 'white' ? color : 'white');
+                    if (!tags.includes(title)) {
+                        setTags([...tags, title]);
+                    } else {
+                        setTags(tags.filter((tag) => tag !== title));
+                    }
+                }}
+                color={tagColor}
+            />
+        );
+    };
+
     return (
         <div className="w-full flex flex-col gap-3 transition-all duration-[250ms] border shadow bg-white border-lightgray rounded-[16px] p-6">
-            <form onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-2">
                     <p>{getText('title:', 'título:')}</p>
                     <input
@@ -117,47 +134,34 @@ const AddNoteForm = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                     <p>{getText('tags:', 'etiquetas:')}</p>
-                    <div className="flex flex-wrap gap-1 justify-start items-start w-full">
-                        <div className="flex w-fit h-fit">
-                            <input type="checkbox" />
-                            <Tag
-                                tag="important"
-                                color="red"
-                                onClick={() => {
-                                    if (tags.includes('important')) {
-                                        setTags(
-                                            tags.filter(
-                                                (tag) => tag !== 'important'
-                                            )
-                                        );
-                                    } else {
-                                        setTags([...tags, 'important']);
-                                    }
-                                }}
-                            />
-                        </div>
+                    <div className="flex flex-col flex-wrap gap-1 justify-start items-start w-full">
+                        <ClickableTag title="important" color="red" />
+                        {/* <Tag
+                            title="to-do"
+                            onClick={() => {
+                                const title = 'to-do';
+                                const color = 'blue-500';
+                                setTagColor(
+                                    tagColor == 'white' ? color : 'white'
+                                );
+                                if (!tags.includes(title)) {
+                                    setTags([...tags, title]);
+                                } else {
+                                    setTags(
+                                        tags.filter((tag) => tag !== title)
+                                    );
+                                }
+                            }}
+                            color={tagColor}
+                        /> */}
+
+                        <ClickableTag title="to-do" color="blue-500" />
+                        <ClickableTag title="school" color="yellow-500" />
+                        <ClickableTag title="personal" color="green" />
+                        <ClickableTag title="quote" color="purple-500" />
+                        <ClickableTag title="unimportant" color="lightgray" />
                         <Tag
-                            tag="to-do"
-                            color="blue-500"
-                            onClick={() => setTags([...tags, 'to-do'])}
-                        />
-                        <Tag
-                            tag="school"
-                            color="yellow-500"
-                            onClick={() => setTags([...tags, 'school'])}
-                        />
-                        <Tag
-                            tag="personal"
-                            color="green"
-                            onClick={() => setTags([...tags, 'personal'])}
-                        />
-                        <Tag
-                            tag="quote"
-                            color="purple-500"
-                            onClick={() => setTags([...tags, 'quote'])}
-                        />
-                        <Tag
-                            tag="unimportant"
+                            title="unimportant"
                             color="lightgray"
                             onClick={() => setTags([...tags, 'unimportant'])}
                         />
@@ -202,7 +206,7 @@ const NoteDisplay = (note: Note) => {
             <div className="flex flex-wrap gap-1 justify-start items-start w-full">
                 {note.tags.map((tag) => (
                     <p
-                        className={`flex bg-opacity-50 w-fit px-2 py-1 shadow rounded-[16px] text-xs sm:text-sm ${
+                        className={`flex bg-opacity-50 w-fit px-2 py-1 shadow rounded-none hover:rounded-[16px] text-xs sm:text-sm transition-all duration-[250ms] hover:cursor-pointer ${
                             tag.includes('unimportant')
                                 ? 'bg-lightgray border-lightgray'
                                 : tag.includes('important')
@@ -230,13 +234,13 @@ const NoteDisplay = (note: Note) => {
                         alert('work in progress!');
                     }}
                 >
-                    Edit
+                    edit
                 </button>
                 <button
                     className="flex text-sm sm:text-base text-light items-center gap-3 transition-all duration-[250ms] hover:scale-105 hover:cursor-pointer border shadow bg-red border-lightgray rounded-[16px] p-2"
                     onClick={handleDelete}
                 >
-                    Delete
+                    delete
                 </button>
             </div>
         </div>
