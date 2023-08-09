@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Contact from '@/components/Contact';
 
 export default function Home() {
+    /*
     const { getText } = useLanguage();
 
     const [infoOpen, setInfoOpen] = useState(true);
@@ -20,18 +21,14 @@ export default function Home() {
     const warningClose = () => {
         setWarningOpen(false);
     };
-
+    */
     return (
         <>
             <Head>
                 <title>apocalix.dev | homepage</title>
             </Head>
 
-            {/* TEMPORARY WARNINGS, REMOVE LATER */}
-            {/* TODO : Add font family natively to the website */}
-            {/* TODO : Add background png to display on production */}
-            {/* TODO : Update / slash when going to a new p[age in navbar */}
-
+            {/*
             <Snackbar open={infoOpen} autoHideDuration={6000}>
                 <Alert
                     className="flex items-center justify-center text-center"
@@ -56,7 +53,8 @@ export default function Home() {
                         'ésta página se encuentra en desarrollo activo, podrías encontrar errores.'
                     )}
                 </Alert>
-            </Snackbar>
+            </Snackbar> 
+            */}
 
             <Hero />
             <Projects />
