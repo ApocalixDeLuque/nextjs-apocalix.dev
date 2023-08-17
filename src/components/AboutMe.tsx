@@ -10,10 +10,14 @@ import {
     html,
     java,
     js,
+    mongodb,
+    mysql,
     nextjs,
     notion,
     php,
+    postman,
     react,
+    rust,
     sass,
     tailwind,
     todoist,
@@ -62,7 +66,7 @@ const IconList = ({ icon, text, opacity = '0.5' }: IconListProps) => {
     return (
         <div className="lg:w-full lg:max-w-[200px] flex flex-col justify-center items-center gap-4 xl:gap-6 2xl:gap-8 hover:cursor-pointer hover:scale-110 transition-transform duration-300">
             <Image
-                className="flex justify-center items-center w-10 md:w-16 lg:w-20 xl:w-24 2x:w-32 aspect-square opacity-50"
+                className={`flex justify-center items-center w-10 md:w-16 lg:w-20 xl:w-24 2x:w-32 aspect-square opacity-50 ${opacity === '1' ? "" : "grayscale" }`}
                 style={{ opacity }}
                 src={icon}
                 alt="icon"
@@ -128,6 +132,7 @@ const AboutMe = () => {
                             <IconList icon={php} text="php" />
                             <IconList icon={js} text="javascript" />
                             <IconList icon={ts} text="typescript" />
+                            <IconList icon={rust} text="rust" />
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center items-center gap-12 sm:gap-16 md:gap-24 xl:gap-32">
@@ -139,6 +144,8 @@ const AboutMe = () => {
                             <IconList icon={react} text="react" />
                             <IconList icon={sass} text="sass" />
                             <IconList icon={tailwind} text="tailwind" />
+                            <IconList icon={mongodb} text="mongodb" />
+                            <IconList opacity="1" icon={mysql} text="mysql" />
                         </div>
                     </div>
                     <div className="w-full flex flex-col justify-center items-center gap-12 sm:gap-16 md:gap-24 xl:gap-32">
@@ -150,6 +157,7 @@ const AboutMe = () => {
                             <IconList opacity="1" icon={todoist} text="todoist" />
                             <IconList opacity="1" icon={vscode} text="vs code" />
                             <IconList opacity="1" icon={google} text="google workspace" />
+                            <IconList opacity="1" icon={postman} text="postman" />
                         </div>
                     </div>
                 </div>
