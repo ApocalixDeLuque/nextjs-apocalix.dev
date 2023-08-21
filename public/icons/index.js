@@ -3,6 +3,8 @@ export { default as apocalixdeluque } from './apocalixdeluque.png';
 export { default as apocalixtv } from './apocalixtv.png';
 export { default as apple_music } from './apple-music.png';
 export { default as battle_net } from './battle-net.png';
+export { default as blankalbum } from './blank-album.webp';
+export { default as blanksong } from './blank-song.webp';
 export { default as c } from './c.png';
 export { default as catmedia } from './catmedia.png';
 export { default as catmusic } from './catmusic.png';
@@ -32,9 +34,9 @@ export { default as load } from './load.png';
 export { default as mail } from './mail.png';
 export { default as menu } from './menu.png';
 export { default as meta } from './meta.png';
-export { default as mongodb } from './mongodb.png'
+export { default as mongodb } from './mongodb.png';
 export { default as moon } from './moon.png';
-export { default as mysql } from './mysql.png'
+export { default as mysql } from './mysql.png';
 export { default as nextjs } from './nextjs.png';
 export { default as notion } from './notion.png';
 export { default as padlock } from './padlock.png';
@@ -45,7 +47,7 @@ export { default as postman } from './postman.png';
 export { default as react } from './react.png';
 export { default as reddit } from './reddit.png';
 export { default as riot_games } from './riot-games.png';
-export { default as rust } from './rust.png'
+export { default as rust } from './rust.png';
 export { default as sass } from './sass.png';
 export { default as spotify } from './spotify.png';
 export { default as steam } from './steam.png';

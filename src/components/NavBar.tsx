@@ -150,10 +150,10 @@ const Navbar = () => {
                 <div className="flex font-semibold items-center justify-center">
                     <Link scroll={false} className="flex items-center gap-2 sm:gap-4" href="/" onClick={scrollToTop}>
                         <Image className="w-6 h-6 flex" src={moon} alt="logo" />
-                        <p className="xl:text-2xl 2xl:text-3xl 3xl:text-4xl ">apocalix.dev</p>
+                        <p className="xl:text-2xl 2xl:text-3xl 3xl:text-4xl">apocalix.dev</p>
                     </Link>
                     <div className="hidden xxs:flex">
-                        <p className="text-lightgray">
+                        <p className="xl:text-2xl 2xl:text-3xl 3xl:text-4xl text-lightgray">
                             {text}
                             <span className="blink">_</span>
                         </p>
