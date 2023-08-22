@@ -17,6 +17,10 @@ interface LfmData {
             artist: {
                 '#text': string;
             };
+            image?: {
+                size: string;
+                '#text': string;
+            }[];
         }[];
     };
 }
@@ -152,6 +156,16 @@ export const LastFmData = ({ userName, apiKey }: LastFmDataProps) => {
     };
 
     const buildLastFmData = () => {
+        type Track = {
+            name: string;
+            artist: {
+                '#text': string;
+            };
+            image?: {
+                size: string;
+                '#text': string;
+            }[];
+        };
         const { error } = lfmData;
         const track = lfmData?.recenttracks?.track?.[0];
 
