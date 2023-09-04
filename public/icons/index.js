@@ -49,6 +49,7 @@ export { default as reddit } from './reddit.png';
 export { default as riot_games } from './riot-games.png';
 export { default as rust } from './rust.png';
 export { default as sass } from './sass.png';
+export { default as sound } from './sound.gif';
 export { default as spotify } from './spotify.png';
 export { default as steam } from './steam.png';
 export { default as tailwind } from './tailwind.png';

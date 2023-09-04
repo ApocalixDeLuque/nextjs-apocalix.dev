@@ -8,9 +8,9 @@ const Links = () => {
     return (
         <section className="flex flex-col justify-start items-center py-4 px-4 xs:px-16 xl:px-32 3xl:py-8 bg-[url('/hero-pattern.png')] bg-center ">
             <h2 className="font-semibold text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl py-16 min-900:py-32">{getText('my music', 'mi música')} 💫</h2>
-            {/* TODO: integrate last.fm API to show all kinds of music stats */}
-            <div className="flex flex-col justify-center">
+            <div className="flex justify-center">
                 <LastFmData userName={userName} apiKey={apiKey} />
+                <div>asd</div>
             </div>
         </section>
     );

@@ -13,23 +13,14 @@ const Hero = () => {
             <div className="w-full h-fit flex flex-col xl:flex-row items-center justify-between max-w-[1800px] gap-8 sm:gap-20">
                 <div className="flex flex-col xl:grid text-[28px] xl:text-[32px] 2xl:text-[40px] 3xl:text-5xl md:min-w-[400px] max-w-fit gap-4 md:gap-6 2xl:gap-16 items-center xl:items-start">
                     <div className="flex flex-col gap-2 md:gap-4 2xl:gap-8 text-center xl:text-start items-center xl:items-start">
-                        <h2 className="w-full font-semibold text-4xl xs:text-5xl xl:text-6xl 2xl:text-7xl">
-                            {getText('hello', 'hola')}! 👋
-                        </h2>
+                        <h2 className="w-full font-semibold text-4xl xs:text-5xl xl:text-6xl 2xl:text-7xl">{getText('hello', 'hola')}! 👋</h2>
                         <p className="py-4 sm:p-0">
-                            {getText('my name is', 'mi nombre es')} jonathan,
-                            aka<span className="text-red"> apocalix</span> :)
+                            {getText('my name is', 'mi nombre es')} jonathan, aka<span className="text-red"> apocalix</span> :)
                         </p>
                     </div>
-                    <Link
-                        scroll={false}
-                        className="w-fit"
-                        href={`#${getText('about-me', 'sobre-mi')}`}
-                    >
-                        <div className="flex bg-lightgray py-4 px-6 lg:px-10 lg:py-6 3xl:px-14 3xl:py-8 rounded-[32px] hover:bg-red hover:text-light hover:cursor-pointer transition-all duration-[250ms]">
-                            <p className="">
-                                {getText('about me', 'sobre mí')}
-                            </p>
+                    <Link scroll={false} className="w-fit animate-bounce" href={`#${getText('about-me', 'sobre-mi')}`}>
+                        <div className="flex bg-lightgray py-4 px-6 lg:px-8 lg:py-4 3xl:px-14 3xl:py-8 rounded-[32px] hover:bg-red hover:text-light hover:cursor-pointer transition-all duration-[250ms]">
+                            <p className="">{getText('about me', 'sobre mí')}</p>
                         </div>
                     </Link>
                 </div>
