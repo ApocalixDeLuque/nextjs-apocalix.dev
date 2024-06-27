@@ -8,53 +8,44 @@ import { useState } from 'react';
 import Contact from '@/components/Contact';
 
 export default function Home() {
-    /*
     const { getText } = useLanguage();
 
     const [infoOpen, setInfoOpen] = useState(true);
-    const [warningOpen, setWarningOpen] = useState(true);
+    /* const [warningOpen, setWarningOpen] = useState(true); */
 
     const infoClose = () => {
         setInfoOpen(false);
     };
 
-    const warningClose = () => {
+    /* const warningClose = () => {
         setWarningOpen(false);
-    };
-    */
+    }; */
+
     return (
         <>
             <Head>
                 <title>apocalix.dev | homepage</title>
             </Head>
 
-            {/*
             <Snackbar open={infoOpen} autoHideDuration={6000}>
-                <Alert
-                    className="flex items-center justify-center text-center"
-                    severity="info"
-                    onClose={infoClose}
-                >
-                    {getText(
-                        'currently working on: social media page',
-                        'actualmente trabajando en: página de redes sociales'
-                    )}{' '}
-                    :)
+                <Alert className="flex items-center justify-center text-center" severity="info" onClose={infoClose}>
+                    {getText('last updated: july 2023', 'última vez actualizado: julio 2023')} :(
+                </Alert>
+            </Snackbar>
+
+            {/* <Snackbar open={infoOpen} autoHideDuration={6000}>
+                <Alert className="flex items-center justify-center text-center" severity="info" onClose={infoClose}>
+                    {getText('currently working on: social media page', 'actualmente trabajando en: página de redes sociales')} :)
                 </Alert>
             </Snackbar>
             <Snackbar open={warningOpen} autoHideDuration={6000}>
-                <Alert
-                    className="flex items-center justify-center text-center"
-                    severity="warning"
-                    onClose={warningClose}
-                >
+                <Alert className="flex items-center justify-center text-center" severity="warning" onClose={warningClose}>
                     {getText(
                         'this page is in active development, you may encounter errors.',
                         'ésta página se encuentra en desarrollo activo, podrías encontrar errores.'
                     )}
                 </Alert>
-            </Snackbar> 
-            */}
+            </Snackbar> */}
 
             <Hero />
             <Projects />
